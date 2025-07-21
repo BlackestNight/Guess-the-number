@@ -34,7 +34,7 @@ int numbers()
 
 
 int main() {
-	int score = 100;
+	int score = 100;chrome://vivaldi-webui/startpage?section=Speed-dials&background-color=#2e2f37
 	printf_s("I am thinking of a number. Can you guess it?\n");
 	printf_s("%d Points! \n", score);
 	int num = random();
@@ -47,13 +47,13 @@ int main() {
 		 
 		if (points < 0)
 		{
-			points = points * -1;
+			points = points * -1;//handle any negative numbers
 		}
 		if (user == num) 
 		{
 			printf_s("Congrats You got it right! \n");
 			printf_s("%d", score);
-			system("pause");
+			system("pause");//gotta let them bask in their moment. 
 			return 0;
 		}
 		else if (user < num) 
@@ -71,7 +71,7 @@ int main() {
 	{
 		printf_s("Game OVER!");
 	}
-	//ToDo add a exception to characters, and make it look better, seperate functions to make it look better and cleaner. 
+	//ToDo add a exception to characters. 
 	return 0;
 }
 
