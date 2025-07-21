@@ -8,9 +8,9 @@ int main() {
 	int number; // varaible initizlization 
 	int user{};
 	int score = 100;
-	int fract1{};
-	int fract2{};
-	int final{};
+	double fract1{};
+	double fract2{};
+	double final{};
 	srand(time(NULL)); //seeding the random function using the current time in seconds as the seed
 	printf_s("I am thinking of a number. Can you guess it?\n");
 	printf_s("%d Points! \n", score);
@@ -20,10 +20,8 @@ int main() {
 	scanf_s("%d", &user);//your user input will need to be clear with each loop? should i be using a for loop for this? w
 	fract1 = number - user;
 	fract2 = number + user;
-	final = ((fract1 / fract2) / 2) * 100;
-	printf_s("%d \n", fract1);
-	printf_s("%d\n", fract2);
-	printf("%d \n", final);//this is just returning zero is it because its returning a negative number?
+	final = ((fract1 / fract2) / 2) * 10;// still need to work out negative numbers? maybe use an unsigned data type
+	final = (int)final;//creates an int version
 	while (getchar() != '\n'); // clear the buffer?
 	if (user == number) {
 		printf_s("Congrats You got it right! \n");
@@ -31,13 +29,13 @@ int main() {
 		system("pause");
 	}
 	else if (user < number) {
-		printf_s("Too Low, you lost 10 points! \n");
-		score = score - 10;
+		printf_s("Too Low, you lost %d points! \n", (int)final);
+		score = score - final;
 		goto start;
 	}
 	else if (user > number) {
-		printf_s("Too High, you lost 10 pionts \n");
-		score = score - 10;
+		printf_s("Too High, you lost %d pionts \n", (int)final);
+		score = score - final;
 		goto start;
 	}
 	else if (score == 0) {
