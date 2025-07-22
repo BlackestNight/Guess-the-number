@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <cstdlib>
 #include <ctime>
+#include <conio.h>
+
 
 int random() 
 {
@@ -33,8 +35,8 @@ int numbers()
 }
 
 
-int main() {
-	int score = 100;chrome://vivaldi-webui/startpage?section=Speed-dials&background-color=#2e2f37
+int game() {
+	int score = 100;
 	printf_s("I am thinking of a number. Can you guess it?\n");
 	printf_s("%d Points! \n", score);
 	int num = random();
@@ -52,7 +54,7 @@ int main() {
 		if (user == num) 
 		{
 			printf_s("Congrats You got it right! \n");
-			printf_s("%d", score);
+			printf_s("%d Points! \n", score);
 			system("pause");//gotta let them bask in their moment. 
 			return 0;
 		}
@@ -74,4 +76,41 @@ int main() {
 	//ToDo add a exception to characters. 
 	return 0;
 }
+void printmenu() 
+{
+	printf_s("======= WELCOME TO THE GUESSING GAME======== \n");
+	printf_s("1.Start Game \n");
+	printf_s("2.Help \n");
+	printf_s("3.Exit \n");
+	printf_s("Please enter an Option: ");
+}
 
+int main() 
+{
+	int choice;
+	while (1)
+	{
+		system("cls");
+		printmenu();
+		scanf_s("%d", &choice);
+	
+		switch (choice)
+		{
+		case 1:
+			printf_s("Starting Your Game");
+			game();
+			break;
+		case 2:
+			printf_s("Launching Help Options");
+			//make options or help screen
+			break;
+		case 3:
+			printf_s("Goodbye");
+			return 0;
+
+		default:
+			printf_s("Invailed input");
+			system("pause");
+		}
+	}
+}
